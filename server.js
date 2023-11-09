@@ -53,7 +53,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://infispecinventorymanage.netlify.app/"],
+    origin: ["http://localhost:3000", "https://infispecinventorymanage.vercel.app"],
     credentials: true,
     methods:["GET", "POST"," PUT", "DELETE"]
   })
@@ -61,7 +61,7 @@ app.use(
 
 app.use("/api/users", userRoute);  
 app.use("/api/users", payment);  
-app.get("/",(req,res)=>res.send("<h1>Backend is working , site is working on. <a href=`https://infispecinventorymanage.netlify.app/`> click here </a>click to visit the website </h1>"))
+app.get("/",(req,res)=>res.send("<h1>Backend is working , site is working on. <a href=`https://infispecinventorymanage.vercel.app`> click here </a>click to visit the website </h1>"))
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
