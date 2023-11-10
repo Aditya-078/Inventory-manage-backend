@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://infispecinventorymanage.vercel.app"],
+    origin: "*",
     credentials: true,
     "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
     "optionsSuccessStatus": 204
