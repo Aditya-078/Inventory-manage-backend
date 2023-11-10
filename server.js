@@ -9,9 +9,7 @@ const contactRoute = require("./routes/contactRoute");
 const errorHandler = require("./middleWare/errorMiddleware");
 const cookieParser = require("cookie-parser");
 const path = require("path");
-const passport = require("passport")
 const cookieSession = require("cookie-session")
-const passportSetup = require("./passport")
 const app = express();
 const { auth } = require('express-openid-connect');
 const Razorpay = require('razorpay')
@@ -23,7 +21,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://infispecinventorymanage.vercel.app',
   clientID: "228975307873-ffn5klsj71qf2r0ie4b3pv67bigo8pqa.apps.googleusercontent.com",
   issuerBaseURL: 'https://dev-a2pq8pf7p1yibmde.us.auth0.com'
 };
@@ -34,15 +32,6 @@ app.use(auth(config));
 //app.get('/', (req, res) => {
   //res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
 //});
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(
-  cookieSession({
-    name:"session",
-    keys:['cyblerwolve'],
-    maxAge: 24 * 60 * 60 * 100,
-  })
-)
 
 
 
