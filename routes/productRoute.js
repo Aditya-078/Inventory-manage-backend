@@ -17,7 +17,7 @@ const errorHandler = require("../middleWare/errorMiddleware");
 
 
 
-router.post("/", protect, authorizeSubscribers, upload.single("image"), createProduct);
+router.post("/", protect, upload.single("image"), createProduct);
 router.patch("/:id", protect, authorizeSubscribers, upload.single("image"), updateProduct);
 router.get("/", protect,  getProducts);
 router.get("/:id", protect,authorizeSubscribers, getProduct);
